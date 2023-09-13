@@ -1,0 +1,964 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "328b87b4-100b-4a0e-9790-9eeb5a8630bd",
+   "metadata": {},
+   "source": [
+    "# 1.Write a python program to find the first N Prime numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "3fa1f02c-f1ab-48f7-a9eb-ded4faaffeb3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter N: 2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "First 2 Prime numbers are:2 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def Prime(n):  \n",
+    "    for i in range(2,n//2+1):  \n",
+    "        if(n%i==0):  \n",
+    "            return(0)  \n",
+    "    return(1)  \n",
+    "  \n",
+    "N=int(input(\"Enter N:\"))  \n",
+    "i=2 \n",
+    "lst=[] \n",
+    "while(1):  \n",
+    "    if(Prime(i)):  \n",
+    "        lst.append(i) \n",
+    "        if(len(lst)==N): \n",
+    "            break \n",
+    "    i+=1 \n",
+    "print(\"First \"+str(N)+\" Prime numbers are:\",end=\"\") \n",
+    "print(*lst)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "97a7d286-fdaf-4a0f-96f8-d6eb6f2ec152",
+   "metadata": {},
+   "source": [
+    "# 2 Write the python code that calculates the salary of an employee. Prompt the user to enter the Basic Salary, HRA, TA and DA. Add these components to calculate the Gross Salary. Also,deduct 10%of salary from the Gross Salary to be paid as tax and display gross minus tax as net salary."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "14ef2e71-74df-4d9e-aab9-e5d509bf1dfc",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Basic Salary:  4500\n",
+      "Enter HRA:  5000\n",
+      "Enter TA:  600\n",
+      "Enter DA:  500\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Gross Salary: 10600.0\n",
+      "Tax Deduction (10%): 1060.0\n",
+      "Net Salary: 9540.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "basic_salary = float(input(\"Enter Basic Salary: \"))\n",
+    "hra = float(input(\"Enter HRA: \"))\n",
+    "ta = float(input(\"Enter TA: \"))\n",
+    "da = float(input(\"Enter DA: \"))\n",
+    "\n",
+    "gross_salary = basic_salary + hra + ta + da\n",
+    "\n",
+    "tax = 0.10 * gross_salary\n",
+    "\n",
+    "net_salary = gross_salary - tax\n",
+    "\n",
+    "print(f\"Gross Salary: {gross_salary}\")\n",
+    "print(f\"Tax Deduction (10%): {tax}\")\n",
+    "print(f\"Net Salary: {net_salary}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d05bb405-6f4a-4a47-a7cc-4a8e9139f4a6",
+   "metadata": {},
+   "source": [
+    "# 3 Write a python program to search for a string in the given list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "b86c4ba5-b2e3-4e85-a607-19fa7c1e8faa",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "gala is present in the list\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "l = [1, 2.0, 'have', 'a', 'gala', 'day']\n",
+    "s = 'gala' \n",
+    " \n",
+    "if s in l:\n",
+    "    print(f'{s} is present in the list')\n",
+    "else:\n",
+    "    print(f'{s} is not present in the list')\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "28f0dd59-7c55-428b-a486-69d164c9a833",
+   "metadata": {},
+   "source": [
+    "# 4 Write a python function that accepts a string and calculate the number of upper case letters and lower case letters"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "6e74f777-5ea6-498a-9208-92add178e08c",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Uppercase letters: 7\n",
+      "Lowercase letters: 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def count_upper_lower_case_letters(input_string):\n",
+    "   \n",
+    "    upper_count = 0\n",
+    "    lower_count = 0\n",
+    "\n",
+    "    #\n",
+    "    for char in input_string:\n",
+    "        \n",
+    "        if char.isupper():\n",
+    "            upper_count += 1\n",
+    "      \n",
+    "        elif char.islower():\n",
+    "            lower_count += 1\n",
+    "\n",
+    " \n",
+    "    return upper_count, lower_count\n",
+    "\n",
+    "\n",
+    "input_str = \"HOw iS yOur TraiNiNg\"\n",
+    "upper, lower = count_upper_lower_case_letters(input_str)\n",
+    "print(f\"Uppercase letters: {upper}\")\n",
+    "print(f\"Lowercase letters: {lower}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "59bf22ba-9a9b-4bcf-98ff-26f287d02956",
+   "metadata": {},
+   "source": [
+    "# 5 Write a program to display the sum of odd numbers and even numbers that fall between 12 and 37"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "c1444af8-82d7-4859-8d88-f1dcbbcb3e5f",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sum of even numbers: 312\n",
+      "Sum of odd numbers: 288\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "sum_even = 0\n",
+    "sum_odd = 0\n",
+    "\n",
+    "for num in range(12, 37):\n",
+    "   \n",
+    "    if num % 2 == 0:\n",
+    "        sum_even += num\n",
+    "    else:\n",
+    "        sum_odd += num\n",
+    "\n",
+    "print(\"Sum of even numbers:\", sum_even)\n",
+    "print(\"Sum of odd numbers:\", sum_odd)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d7ad1f7a-13b9-4bbe-a56b-8d98324deaa7",
+   "metadata": {},
+   "source": [
+    "# 6Write a python Program to print the table of any number."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "51406818-5e5c-407b-a7d0-9f643f3d9258",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the number to print the tables for: 8\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "8 x 1 = 8\n",
+      "8 x 2 = 16\n",
+      "8 x 3 = 24\n",
+      "8 x 4 = 32\n",
+      "8 x 5 = 40\n",
+      "8 x 6 = 48\n",
+      "8 x 7 = 56\n",
+      "8 x 8 = 64\n",
+      "8 x 9 = 72\n",
+      "8 x 10 = 80\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "n=int(input(\"Enter the number to print the tables for:\"))\n",
+    "for i in range(1,11):\n",
+    "    print(n,\"x\",i,\"=\",n*i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "427b263a-f5a8-482f-b4cf-9eef173a7e73",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b7a013de-606a-4748-a694-eec2e3075ebf",
+   "metadata": {},
+   "source": [
+    "# 7.Write a Python program to sum the first 10 prime numbers\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "487d3261-0c8d-4556-843b-1a57199ef993",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sum of the first 10 prime numbers: 129\n"
+     ]
+    }
+   ],
+   "source": [
+    "def is_prime(number):\n",
+    "    if number <= 1:\n",
+    "        return False\n",
+    "    if number <= 3:\n",
+    "        return True\n",
+    "    if number % 2 == 0 or number % 3 == 0:\n",
+    "        return False\n",
+    "    i = 5\n",
+    "    while i * i <= number:\n",
+    "        if number % i == 0 or number % (i + 2) == 0:\n",
+    "            return False\n",
+    "        i += 6\n",
+    "    return True\n",
+    "\n",
+    "def sum_first_10_primes():\n",
+    "    count = 0\n",
+    "    number = 2\n",
+    "    prime_sum = 0\n",
+    "\n",
+    "    while count < 10:\n",
+    "        if is_prime(number):\n",
+    "            prime_sum += number\n",
+    "            count += 1\n",
+    "        number += 1\n",
+    "\n",
+    "    return prime_sum\n",
+    "\n",
+    "result = sum_first_10_primes()\n",
+    "print(\"Sum of the first 10 prime numbers:\", result)\n",
+    "\n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bacb3b2c-2d5f-41a9-8919-b80a05724f07",
+   "metadata": {},
+   "source": [
+    "# 8.Write a python program to implement arithmetic operations using nested if statement"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "a692526b-383a-4947-8c70-1a9d45c336c6",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the first number:  2.0\n",
+      "Enter the second number:  5\n",
+      "Enter the operation (+, -, *, /):  -\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result: -3.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "num1 = float(input(\"Enter the first number: \"))\n",
+    "num2 = float(input(\"Enter the second number: \"))\n",
+    "operation = input(\"Enter the operation (+, -, *, /): \")\n",
+    "\n",
+    "result = 0\n",
+    "\n",
+    "if operation == \"+\":\n",
+    "    result = num1 + num2\n",
+    "elif operation == \"-\":\n",
+    "    result = num1 - num2\n",
+    "elif operation == \"*\":\n",
+    "    result = num1 * num2\n",
+    "elif operation == \"/\":\n",
+    "    if num2 != 0: \n",
+    "        result = num1 / num2\n",
+    "    else:\n",
+    "        print(\"Error: Division by zero\")\n",
+    "else:\n",
+    "    print(\"Invalid operation\")\n",
+    "\n",
+    "print(f\"Result: {result}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bd720452-2092-4aae-9846-519e25a1b1e8",
+   "metadata": {},
+   "source": [
+    "# 9Write a Python Program to Take the temperature in celcius and convert it to Fahrenheit."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "74baf91d-59e2-49a2-b5f2-ceedf6804f63",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter temperature in Celsius:  28\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "28.0 degrees Celsius is equal to 82.4 degrees Fahrenheit\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "celsius = float(input(\"Enter temperature in Celsius: \"))\n",
+    "\n",
+    "fahrenheit = (celsius * 9/5) + 32\n",
+    "\n",
+    "print(f\"{celsius} degrees Celsius is equal to {fahrenheit} degrees Fahrenheit\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0b14f0c7-345a-463a-96f5-7018f9bc632c",
+   "metadata": {},
+   "source": [
+    "# 10 Write a python program to find a maximum and minimum number in a list without using an inbuilt function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "505036bd-578e-4f5e-b4da-7e9a25f6aac0",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Maximum number: 9\n",
+      "Minimum number: 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "def find_max_min(numbers):\n",
+    "    if not numbers:\n",
+    "        return None, None\n",
+    "\n",
+    "    max_num = numbers[0]\n",
+    "    min_num = numbers[0]\n",
+    "\n",
+    " \n",
+    "    for num in numbers:\n",
+    "        if num > max_num:\n",
+    "            max_num = num\n",
+    "        elif num < min_num:\n",
+    "            min_num = num\n",
+    "\n",
+    "    return max_num, min_num\n",
+    "\n",
+    "number_list = [5, 2, 9, 1, 7, 3]\n",
+    "max_number, min_number = find_max_min(number_list)\n",
+    "\n",
+    "if max_number is not None and min_number is not None:\n",
+    "    print(\"Maximum number:\", max_number)\n",
+    "    print(\"Minimum number:\", min_number)\n",
+    "else:\n",
+    "    print(\"The list is empty.\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "799282d1-0d8a-413f-aaf0-4ec860a94a46",
+   "metadata": {},
+   "source": [
+    "# 11 Write a Python Program to print out the number of seconds in 30 day month 30 days, 24 hours in a day, 60 mins per day, 60 second per min."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "57a1409b-1e19-428a-b7ca-3d8330eb036d",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of seconds in a 30-day month: 2592000\n"
+     ]
+    }
+   ],
+   "source": [
+    "days = 30\n",
+    "hours_per_day = 24\n",
+    "minutes_per_hour = 60\n",
+    "seconds_per_minute = 60\n",
+    "\n",
+    "seconds_in_month = days * hours_per_day * minutes_per_hour * seconds_per_minute\n",
+    "\n",
+    "print(\"Number of seconds in a 30-day month:\", seconds_in_month)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "484e7ad2-f548-40a5-b63a-5e63215fe492",
+   "metadata": {},
+   "source": [
+    "# 12 Write a Python Program to print out the number of seconds in a year."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "7c0b15fc-6240-4f0c-a17e-b008062b492a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of seconds in a year = 31536000\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "days = 365\n",
+    "hours = 24\n",
+    "mins = 60\n",
+    "secs = 60\n",
+    "secsInYear = days * hours * mins * secs\n",
+    "print(\"Number of seconds in a year =\", secsInYear)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "416ab34e-be54-4eed-a546-59d12a43dbdd",
+   "metadata": {},
+   "source": [
+    "# 13 A high speed train can travel at an avg speed of 150 mph, how long will it take a train travelling at this speed to travel from Londen to Glasgow which is 414 miles away."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "a0b8a049-5266-46f9-a0c6-c4f2c2026f44",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "It will take 2.76 hours to travel from London to Glasgow.\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "\n",
+    "distance = 414  # miles\n",
+    "speed = 150  # mph\n",
+    "\n",
+    "time = distance / speed\n",
+    "print(f\"It will take {time} hours to travel from London to Glasgow.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "52b8dbd6-c375-46e9-8ca8-98d591b94f6e",
+   "metadata": {},
+   "source": [
+    "# 14 Write a Python Program that defines a variable called days_in_each_school_year and assign 192 to variable. The program should then print out the total hours that you spend in school from year 7 to year 11. if each day you spend 6 hours in school day_in_each_school_year = 192."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "98455850-9226-4fd3-a593-cf479047b726",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total hours spent in school from year 7 to year 11: 5760\n"
+     ]
+    }
+   ],
+   "source": [
+    "days_in_each_school_year = 192\n",
+    "\n",
+    "total_hours_in_school = (days_in_each_school_year * 5)  \n",
+    "total_hours = total_hours_in_school * 6 \n",
+    "\n",
+    "print(\"Total hours spent in school from year 7 to year 11:\", total_hours)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "84c70086-e777-40c2-924e-328390563168",
+   "metadata": {},
+   "source": [
+    "# 15 If the ages of Ram, Sam and Khan are input through the keyboard, write a python program to determine the eldest and the youngest of the three."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "e07f4d82-3c5e-4d0a-85eb-89a70585b247",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Ram's age:  45\n",
+      "Enter Sam's age:  25\n",
+      "Enter Khan's age:  20\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The eldest among them is 45 years old.\n",
+      "The youngest among them is 20 years old.\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "\n",
+    "ram_age = int(input(\"Enter Ram's age: \"))\n",
+    "sam_age = int(input(\"Enter Sam's age: \"))\n",
+    "khan_age = int(input(\"Enter Khan's age: \"))\n",
+    "\n",
+    "eldest = max(ram_age, sam_age, khan_age)\n",
+    "\n",
+    "youngest = min(ram_age, sam_age, khan_age)\n",
+    "\n",
+    "print(f\"The eldest among them is {eldest} years old.\")\n",
+    "print(f\"The youngest among them is {youngest} years old.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4565f244-b11c-4cd0-a3c1-f55c886066a1",
+   "metadata": {},
+   "source": [
+    "# 16.Write a python program to rotate a list by the right n times with and without slicing technique."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "88842fb9-00c5-4bca-883c-a6a41cc748ff",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4, 5, 1, 2, 3]\n",
+      "[4, 5, 1, 2, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "\n",
+    "def rotate_list_with_slicing(lst, n):\n",
+    "    n = n % len(lst)  # Ensure n is within the range of list length\n",
+    "    rotated_list = lst[-n:] + lst[:-n]\n",
+    "    return rotated_list\n",
+    "my_list = [1, 2, 3, 4, 5]\n",
+    "rotation_count = 2\n",
+    "result = rotate_list_with_slicing(my_list, rotation_count)\n",
+    "print(result) \n",
+    "[4, 5, 1, 2, 3]\n",
+    "def rotate_list_without_slicing(lst, n):\n",
+    "    n = n % len(lst)  # Ensure n is within the range of list length\n",
+    "    rotated_list = [0] * len(lst)\n",
+    "    for i in range(len(lst)):\n",
+    "        rotated_list[(i + n) % len(lst)] = lst[i]\n",
+    "    return rotated_list\n",
+    "my_list = [1, 2, 3, 4, 5]\n",
+    "rotation_count = 2\n",
+    "result = rotate_list_without_slicing(my_list, rotation_count)\n",
+    "print(result) "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a18dbf0e-a1cc-41f4-9664-81a28e49076b",
+   "metadata": {},
+   "source": [
+    "# 17.Python program to print the patterns given below:\n",
+    "i)\n",
+    "1 \n",
+    "1 1 \n",
+    "1 2 1 \n",
+    "1 3 3 1\n",
+    "1 4 6 4 1 \n",
+    "1 5 10 10 5 1 \n",
+    "1 6 15 20 15 6 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "id": "aa99ca4d-1aa9-479e-83e9-5e87d601cb32",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 \n",
+      "1 1 \n",
+      "1 2 1 \n",
+      "1 3 3 1 \n",
+      "1 4 6 4 1 \n",
+      "1 5 10 10 5 1 \n",
+      "1 6 15 20 15 6 1 \n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def print_pattern(rows):\n",
+    "    for i in range(1, rows + 1):\n",
+    "        for j in range(1, i + 1):\n",
+    "            print(binomial_coefficient(i - 1, j - 1), end=\" \")\n",
+    "        print()\n",
+    "\n",
+    "def binomial_coefficient(n, k):\n",
+    "    if k == 0 or k == n:\n",
+    "        return 1\n",
+    "    return binomial_coefficient(n - 1, k - 1) + binomial_coefficient(n - 1, k)\n",
+    "\n",
+    "rows = 7  # You can change this to adjust the number of rows in the pattern\n",
+    "print_pattern(rows)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c501b1eb-6902-47d2-88f4-0f2b847186dd",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "# 17 Python program to print the patterns given below:\n",
+    "2   *\n",
+    "    * *\n",
+    "    * * *\n",
+    "    * * * *\n",
+    "    * * * * *"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "dbd88450-e353-4b06-96b0-638d9d259c84",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "* \n",
+      "* * \n",
+      "* * * \n",
+      "* * * * \n",
+      "* * * * * \n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "n = 5  # Number of rows you want\n",
+    "\n",
+    "for i in range(1, n + 1):\n",
+    "    for j in range(i):\n",
+    "        print(\"*\", end=\" \")\n",
+    "    print()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1f240f51-d915-4f66-9122-3ec310f5f989",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "17 Python program to print the patterns given below:\n",
+    "                *\n",
+    "               * *\n",
+    "              * * *\n",
+    "             * * * *\n",
+    "            * * * * *\n",
+    "           * * * * * *\n",
+    "          * * * * * * *"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "09a92c70-c2df-446c-98fb-2c7c2c26291a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "      * \n",
+      "     * * \n",
+      "    * * * \n",
+      "   * * * * \n",
+      "  * * * * * \n",
+      " * * * * * * \n",
+      "* * * * * * * \n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "rows = 7  \n",
+    "\n",
+    "for i in range(1, rows + 1):\n",
+    "\n",
+    "    for j in range(rows - i):\n",
+    "        print(\" \", end=\"\")\n",
+    "\n",
+    "    for k in range(i):\n",
+    "        print(\"*\", end=\" \")\n",
+    "\n",
+    "    print()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0bad6450-849b-4b9e-9e03-50f77ce7950a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "17 Python program to print the patterns given below:\n",
+    "4  p\n",
+    "   py\n",
+    "   pyt\n",
+    "   pyth\n",
+    "   pytho\n",
+    "   python"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "ac5f65bc-ff5c-438f-b4f3-4e5fae79c329",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "p\n",
+      "py\n",
+      "pyt\n",
+      "pyth\n",
+      "pytho\n",
+      "python\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "word = \"python\"\n",
+    "\n",
+    "for i in range(1, len(word) + 1):\n",
+    "    print(word[:i])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "925ddecc-c4f9-4835-a54b-ad75693d3401",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
